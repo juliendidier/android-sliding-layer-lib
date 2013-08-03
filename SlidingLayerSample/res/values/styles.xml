@@ -41,7 +41,7 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-    
+
     <style name="ButtonRed" parent="@android:style/Widget.Button">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -51,6 +51,35 @@
         <item name="android:textColor">#fff</item>
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:background">@drawable/button_red_selector</item>
+    </style>
+
+    <style name="IndexLayout">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="BtnIndex">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">0dip</item>
+        <item name="android:layout_weight">50</item>
+        <item name="android:shadowColor">#FFFFFFFF</item>
+        <item name="android:shadowRadius">5</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textSize">30dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#fff</item>
+    </style>
+
+    <style name="BtnAvailable" parent="BtnIndex">
+        <item name="android:gravity">bottom|center_vertical|center_horizontal|center</item>
+        <item name="android:paddingBottom">30dip</item>
+    </style>
+
+    <style name="BtnFree" parent="BtnIndex">
+        <item name="android:layout_below">@id/index_available_button</item>
+        <item name="android:gravity">top|center_vertical|center_horizontal|center</item>
+        <item name="android:paddingTop">30dip</item>
     </style>
 
 </resources>

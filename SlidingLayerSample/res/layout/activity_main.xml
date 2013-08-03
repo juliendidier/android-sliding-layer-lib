@@ -21,33 +21,29 @@
   ~ limitations under the License.
 -->
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity" >
-    
-    <ImageView 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="45dp"
-        android:contentDescription="@string/not_applicable"
-        android:src="@drawable/main_screen_rocket"/>
-    
-    <Button
-        android:id="@+id/buttonOpen"
-        style="@style/ButtonRed"
-        android:onClick="buttonClicked"
-        android:layout_centerInParent="true"
-        android:text="@string/open_button_container" />
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+>
 
-    <com.slidinglayer.SlidingLayer
+    <fragment
+        class="com.slidinglayersample.IndexFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    />
+<!--     <fragment android:name="com.slidinglayersample.IndexFragment"
+        android:id="@+id/index_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    />
+
+ -->    <com.slidinglayer.SlidingLayer
         xmlns:slidingLayer="http://schemas.android.com/apk/res/com.slidinglayersample"
         android:id="@+id/slidingLayer1"
-        android:layout_width="@dimen/layer_width"
-        android:layout_height="match_parent">
+        android:layout_gravity="bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
     <!--slidingLayer:shadowDrawable="@drawable/sidebar_shadow"
         slidingLayer:shadowWidth="@dimen/shadow_width"
         slidingLayer:offsetWidth="@dimen/offset_width"
@@ -71,17 +67,8 @@
                 android:textSize="17sp"
                 android:textColor="#074035"/>
 
-            <Button
-		        android:id="@+id/buttonClose"
-		        style="@style/ButtonRed"
-		        android:onClick="buttonClicked"
-                android:layout_marginBottom="60dp"
-                android:layout_alignParentBottom="true"
-		        android:layout_centerHorizontal="true"
-		        android:text="@string/close_button_container" />
-
         </RelativeLayout>
 
     </com.slidinglayer.SlidingLayer>
 
-</RelativeLayout>
+</FrameLayout>

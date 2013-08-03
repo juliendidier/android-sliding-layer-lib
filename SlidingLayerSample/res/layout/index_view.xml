@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#BB000000"
+>
+    <LinearLayout
+        android:id="@+id/index_background"
+        style="@style/IndexLayout"
+    >
+        <Button
+            android:id="@+id/index_available_button"
+            android:text="A"
+            style="@style/BtnAvailable"
+        />
+        <Button
+            android:id="@+id/index_free_button"
+            android:text="B"
+            style="@style/BtnFree"
+        />
+    </LinearLayout>
+</RelativeLayout>
