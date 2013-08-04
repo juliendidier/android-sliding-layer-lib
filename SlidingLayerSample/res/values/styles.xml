@@ -53,6 +53,11 @@
         <item name="android:background">@drawable/button_red_selector</item>
     </style>
 
+    <style name="MapFragment">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
     <style name="DetailFragment">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

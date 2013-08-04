@@ -26,11 +26,18 @@
 package com.slidinglayersample;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationManager;
+import android.util.Log;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Build;
 import android.os.Bundle;
+import java.io.IOException;
 
 public class MainActivity extends FragmentActivity
 {
@@ -39,10 +46,31 @@ public class MainActivity extends FragmentActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+
+        FragmentTransaction ft = fragmentManager.beginTransaction();
         SlideFragment slide = new SlideFragment();
         ft.add(R.id.detail_layout_wrapper, slide, "slide");
         ft.commit();
+
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        Location location;
+
+        if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        } else {
+            location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        }
+
+        try {
+            Geocoder geocoder = new Geocoder(this);
+            Address address = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1).get(0);
+            // StationMapFragment mapFragment = (StationMapFragment) fragmentManager.findFragmentById(R.id.map_layout);
+
+            // mapFragment.setUpMap();
+        } catch (IOException e) {
+            Log.e("MapActivity::onCreate", "IOException: "+e.getMessage(),e);
+        }
     }
 
     @SuppressLint("NewApi")

@@ -10,7 +10,6 @@ import android.widget.FrameLayout.LayoutParams;
 import android.widget.TextView;
 import com.slidinglayer.SlidingLayer;
 import android.view.KeyEvent;
-import android.view.MenuItem;
 import android.graphics.drawable.Drawable;
 
 public class SlideFragment extends Fragment
@@ -93,11 +92,5 @@ public class SlideFragment extends Fragment
     //     default:
     //         return super.onKeyDown(keyCode, event);
     //     }
-    // }
-
-    // @Override
-    // public boolean onOptionsItemSelected(MenuItem item) {
-    //     finish();
-    //     return true;
     // }
 }

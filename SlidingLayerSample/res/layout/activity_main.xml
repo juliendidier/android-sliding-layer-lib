@@ -29,8 +29,18 @@
 >
 
     <fragment
+        android:id="@+id/map_layout"
+        style="@style/MapFragment"
+        class="com.slidinglayersample.StationMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    />
+
+<!--
+     <fragment
         class="com.slidinglayersample.IndexFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
     />
+ -->
 </FrameLayout>
