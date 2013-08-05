@@ -61,14 +61,11 @@ public class SlideFragment extends Fragment
         Drawable d;
 
         textResource = R.string.swipe_down_label;
-        d = getResources().getDrawable(R.drawable.container_rocket);
 
         mSlidingLayer.setStickTo(SlidingLayer.STICK_TO_BOTTOM);
         rlp.width = LayoutParams.MATCH_PARENT;
         rlp.height = getResources().getDimensionPixelSize(R.dimen.layer_width);
 
-        d.setBounds(0, 0, d.getIntrinsicWidth(), d.getIntrinsicHeight());
-        swipeText.setCompoundDrawables(null, d, null, null);
         swipeText.setText(getResources().getString(textResource));
         mSlidingLayer.setLayoutParams(rlp);
 

@@ -31,6 +31,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.StrictMode;
 import android.util.Log;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -44,6 +45,12 @@ public class MainActivity extends FragmentActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // used to enforce webservice calls for main thread
+        // see: http://developer.android.com/reference/android/os/NetworkOnMainThreadException.html
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         setContentView(R.layout.activity_main);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -65,9 +72,10 @@ public class MainActivity extends FragmentActivity
         try {
             Geocoder geocoder = new Geocoder(this);
             Address address = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1).get(0);
-            // StationMapFragment mapFragment = (StationMapFragment) fragmentManager.findFragmentById(R.id.map_layout);
+            StationMapFragment mapFragment = (StationMapFragment) fragmentManager.findFragmentById(R.id.map_layout);
 
-            // mapFragment.setUpMap();
+            mapFragment.setUpMap();
+            mapFragment.setLocation(48.856614, 2.3522219);
         } catch (IOException e) {
             Log.e("MapActivity::onCreate", "IOException: "+e.getMessage(),e);
         }

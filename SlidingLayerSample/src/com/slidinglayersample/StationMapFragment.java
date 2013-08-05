@@ -61,4 +61,10 @@ public class StationMapFragment extends com.google.android.gms.maps.SupportMapFr
         mSettings.setZoomControlsEnabled(false);
     }
 
+    public void setLocation(Double latitude, Double longitude)
+    {
+        LatLng latLng = new LatLng(latitude, longitude);
+
+        map.animateCamera(CameraUpdateFactory.newLatLng(new LatLng(latitude, longitude)));
+    }
 }
